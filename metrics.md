@@ -24,6 +24,8 @@ Using the distance between words in the comment and in the method, compare if th
     - Experimentally determined $c_{coeff} = 0$ -> not enough coherence, add info the emphasize relation with method identifier
     - Experimentally determined $c_{coeff} > 0.5$ -> too trivial, does not contain additional info
 
+**Not really applicable for class comments**, since class comments usually contain higher level information IE which services are offered, etc. [Automatic Quality Assessment of Source Code Comments: The JavadocMiner]. 
+
 Comment length : Experimentally (after normalization) : words with 1-2 words can be deleted. Comments with at least 30 words are too complex for the length to be used. 
 
 
@@ -33,17 +35,22 @@ Comment length : Experimentally (after normalization) : words with 1-2 words can
 
 ### NL quality
 
-- **Token, Noun, Verb count heuristics** : detect well formed sentences
-- **Words Per Javadoc Comment (WPJC)** : detect members, classes, etc. that could be under documented -> comment length of first paper
-- **Abbreviation Count Heuristic (ABB)** : detect number of abreviations (to avoid)
-- **Readability heuristics** : Fog index, Flesch Reading Ease Level, Flesch-Kincaid Grade Level Score -> in the paper studies infeasible for source code comments ?
+1. **Token, Noun, Verb count heuristics** : detect well formed sentences
+2. **Words Per Javadoc Comment (WPJC)** : detect members, classes, etc. that could be under documented -> comment length of first paper
+3. **Abbreviation Count Heuristic (ABB)** : detect number of abreviations (to avoid)
+4. **Readability heuristics** : Fog index, Flesch Reading Ease Level, Flesch-Kincaid Grade Level Score -> in the paper studies infeasible for source code comments ?
+
+All of these could be used for class comments.
 
 
 ### Code / Comment Consistency
 
-- **Documentable Item Ratio Heuristic (DIR)** : Must document all aspects of method @throws, @return, @parameter, etc.
-- **Any Javadoc Comment heuristic (ANYJ)** : Ratio of nb of identifiers (?) to total number of identifiers
-- **Sync Heuristics** : Return types, Parameters, Exceptions must be valid (up-to-date), IE having correct name of the type, parameters names and exceptions names
+1. **Documentable Item Ratio Heuristic (DIR)** : Must document all aspects of method @throws, @return, @parameter, etc.
+2. **Any Javadoc Comment heuristic (ANYJ)** : Ratio of nb of identifiers (?) to total number of identifiers
+3. **Sync Heuristics** : Return types, Parameters, Exceptions must be valid (up-to-date), IE having correct name of the type, parameters names and exceptions names
     - **RSYNC** : Return type
     - **PSYNC** : Parameters
     - **ESYNC** : Exceptions
+
+<p>
+2. could be used for class comments, 1. and 3. not so much for class comments since those informations are not contained in the class comments.
