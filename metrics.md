@@ -82,7 +82,24 @@ The paper [Automatic Quality Assessment of Source Code Comments: The JavadocMine
 
 1. **Token, Noun, Verb count heuristics** : detect well formed sentences in the language.
 2. **Words Per Javadoc Comment (WPJC)** : detect members, classes, etc. that could be under documented -> similar to the comment length seen previously
-3. **Abbreviation Count Heuristic (ABB)** : detect number of abreviations (to avoid)
+3. **Abbreviation Count Heuristic (ABB)** : detect number of abreviations (to avoid) 
 4. **Readability heuristics** : Fog index, Flesch Reading Ease Level, Flesch-Kincaid Grade Level Score -> in the paper studies infeasible for source code comments ?
 
 All of these could be used for class comments, as they are general metrics for the text written.
+
+
+### Acronym detection
+
+**NB :** in the literature, acronyms and abbreviations are often mixed together. An abbreviation would be the shortened form of the word (E.G **Street** -> **St**, **Example** -> **Ex**.). An acronym should spell another word (scuba -> **s**elf-**c**ontained **u**nderwated...) without enunciating each letter (initialism **VIP** would not be valid for example). 
+
+[https://abbreviations.yourdictionary.com/articles/what-is-the-difference-between-an-abbreviation-and-an-acroynm.html] 
+
+
+We will also use abbreviation with the meaning of acroynm and mix initialisms and acronyms in this document.
+
+An algorithm was developper in **[A Simple Algorithm for Identifying Abbreviation Definitions in Biomedical Text] (A.S Schwartz)**, in the context of biomedical texts.
+The problem is they try to map the short form of the algorithm in the text to the long form which should be in the surrounding sentences, which might not exist in the case in comments.
+
+In our case it would be enough to detect that there is a an abbreviation which makes things much easier as we do not have to deal with cases of collisions (E.G **PC** -> personal computer, principal component, etc.).
+
+For our goals we could be satisfied with a simple list of existing acronyms and if we found a match, we are confident it's an abbreviation.
