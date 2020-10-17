@@ -85,7 +85,59 @@ The paper [Automatic Quality Assessment of Source Code Comments: The JavadocMine
 3. **Abbreviation Count Heuristic (ABB)** : detect number of abreviations (to avoid) 
 4. **Readability heuristics** : Fog index, Flesch Reading Ease Level, Flesch-Kincaid Grade Level Score -> in the paper studies infeasible for source code comments ?
 
-All of these could be used for class comments, as they are general metrics for the text written.
+All of these could be used for class comments, as they are general metrics for written text.
+
+### Readability Indices
+
+#### Flesch reading ease
+
+The flesch reading ease test scores how hard a text is to read. The lower the score is, the harder the text is to read.
+
+##### Score values
+
+From this [source](https://yoast.com/flesch-reading-ease-score/) :
+
+- **90-100** : very easy to read, easily understood by an average 11-year-old student-
+- **80-90** : easy to read
+- **70-80** : fairly easy to read
+- **60-70** : easily understood by 13- to 15-year-old students
+- **50-60** : fairly difficult to read
+- **30-50** : difficult to read, best understood by college graduates
+- **0-30** : very difficult to read, best understood by university graduates
+
+#### Gunning fog index 
+
+The gunning fog index also has a goal to estimate how hard a text is to read. Below is the formula :
+$0.4\left[\left({\frac{{words}}{{sentences}}}\right)+100\left({\frac{complex words}{{words}}}\right)\right]$
+
+##### Score values
+
+[Source](https://en.wikipedia.org/wiki/Gunning_fog_index)
+
+- **17** : College graduate
+- **16** : College senior
+- **15** : College junior
+- **14** : College sophomore
+- **13** : College freshman
+- **12** : High school senior
+- **11** : High school junior
+- **10** : High school sophomore
+- **9**	: High school freshman
+- **8**	: Eighth grade
+- **7**	: Seventh grade
+- **6**	: Sixth grade
+
+#### Smog index
+The SMOG grade tries to measure the years of education that are needed to read a specific text. It was developed for medical usage with the goal that there is a variant that can be estimated mentally.
+
+$grade = 1.043 \sqrt{number \; of \; polysyllables* \frac{30}{number\; of \;sentences}} + 3.1291$
+
+##### Score values
+
+[Table](https://www.textcompare.org/readability/smog-index#Grade-Conversion)
+
+![](https://i.imgur.com/uymsVgO.png)
+
 
 
 ### Acronym detection
